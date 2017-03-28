@@ -1,2 +1,2 @@
-# SuchWating
+# SuchWaiting
 Android waiting annimation
