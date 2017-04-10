@@ -7,22 +7,20 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.view.MarginLayoutParamsCompat;
 
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
-import com.azalea.suchwaiting.loadingimplemention.ILoadingRender;
 
 
 /**
  * base loading drawable
  */
-public class LoadingDrawable extends Drawable {
+public class LoadingDrawable extends Drawable implements Drawable.Callback {
 
 	BaseLoadingRender mLoadingRender = null;
 
 	public LoadingDrawable(BaseLoadingRender loadingRender) {
 		mLoadingRender = loadingRender;
-		mLoadingRender.setDrawableCallBack(this.getCallback());
+		mLoadingRender.setDrawableCallBack(this);
 	}
 
 	@Override
@@ -49,5 +47,20 @@ public class LoadingDrawable extends Drawable {
 	@Override
 	public int getOpacity() {
 		return mLoadingRender.getOpacity();
+	}
+
+	@Override
+	public void invalidateDrawable(@NonNull Drawable who) {
+		invalidateSelf();
+	}
+
+	@Override
+	public void scheduleDrawable(@NonNull Drawable who, @NonNull Runnable what, long when) {
+		scheduleSelf(what, when);
+	}
+
+	@Override
+	public void unscheduleDrawable(@NonNull Drawable who, @NonNull Runnable what) {
+		unscheduleSelf(what);
 	}
 }

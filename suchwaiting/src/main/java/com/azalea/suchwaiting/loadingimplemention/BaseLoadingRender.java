@@ -41,6 +41,10 @@ public class BaseLoadingRender implements ILoadingRender {
 
 	}
 
+	protected void invalidate() {
+		mDrawableCallBack.invalidateDrawable(null);
+	}
+
 	@Override
 	public int getOpacity() {
 		return PixelFormat.UNKNOWN;

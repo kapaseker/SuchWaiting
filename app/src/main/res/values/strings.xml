@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">SuchWaiting</string>
     <string name="introduction_app">Android Loading Animation</string>
+    <string name="index_introduce">please choose what you like in drawer on the left-side</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
