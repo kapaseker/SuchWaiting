@@ -3,10 +3,7 @@ package azalea.com.suchwating;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,21 +15,15 @@ import azalea.com.suchwating.sample.ColorLineDotFragment;
 import azalea.com.suchwating.sample.IndexFragment;
 
 public class SampleActivity extends AppCompatActivity
-		implements NavigationView.OnNavigationItemSelectedListener, ViewPager.OnPageChangeListener {
+		implements NavigationView.OnNavigationItemSelectedListener {
 
 	private DrawerLayout mMenuDrawer = null;
 	private ActionBarDrawerToggle mDrawerToggle = null;
-	private ViewPager mSampleViewPager = null;
 	NavigationView mNavigationView = null;
 
 	private static final Fragment[] SAMPLE_FRAGMENTS = new Fragment[]{
 			new IndexFragment(),
 			new ColorLineDotFragment(),
-	};
-
-	private static final int[] INDEX_IDS = new int[]{
-			R.id.nav_index,
-			R.id.nav_color_line_dot,
 	};
 
 	@Override
@@ -51,12 +42,9 @@ public class SampleActivity extends AppCompatActivity
 		mNavigationView = (NavigationView) findViewById(R.id.nav_view);
 		mNavigationView.setNavigationItemSelectedListener(this);
 
-		mSampleViewPager = (ViewPager) findViewById(R.id.viewpager);
-		mSampleViewPager.setAdapter(new SamplePageAdapter(getSupportFragmentManager(),SAMPLE_FRAGMENTS));
-		mSampleViewPager.setCurrentItem(0);
-		mNavigationView.setCheckedItem(R.id.nav_index);
-
-		mSampleViewPager.addOnPageChangeListener(this);
+        if(getSupportFragmentManager().findFragmentById(R.id.fragment) == null){
+            goFragment(0);
+        }
 	}
 
 	@Override
@@ -102,9 +90,6 @@ public class SampleActivity extends AppCompatActivity
 		// Handle navigation view item clicks here.
 
 		switch (item.getItemId()){
-			case R.id.nav_index:
-				goFragment(0);
-				break;
 			case R.id.nav_color_line_dot:
 				goFragment(1);
 				break;
@@ -116,44 +101,6 @@ public class SampleActivity extends AppCompatActivity
 	}
 
 	private void goFragment(int index) {
-		if(mSampleViewPager.getCurrentItem() != index){
-			mSampleViewPager.setCurrentItem(index);
-		}
-	}
-
-	@Override
-	public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-	}
-
-	@Override
-	public void onPageSelected(int position) {
-		mNavigationView.setCheckedItem(INDEX_IDS[position]);
-	}
-
-	@Override
-	public void onPageScrollStateChanged(int state) {
-
-	}
-
-
-	private static class SamplePageAdapter extends FragmentStatePagerAdapter {
-
-		Fragment[] mFragments = null;
-
-		public SamplePageAdapter(FragmentManager fm, Fragment[] frags) {
-			super(fm);
-			mFragments = frags;
-		}
-
-		@Override
-		public Fragment getItem(int position) {
-			return mFragments[position];
-		}
-
-		@Override
-		public int getCount() {
-			return mFragments.length;
-		}
+		getSupportFragmentManager().beginTransaction().replace(R.id.fragment,SAMPLE_FRAGMENTS[index]).commit();
 	}
 }
