@@ -3,6 +3,9 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_index"
+            android:title="@string/menu_item_index"/>
+        <item
             android:id="@+id/nav_color_line_dot"
             android:title="@string/menu_item_dot_waiting"/>
     </group>

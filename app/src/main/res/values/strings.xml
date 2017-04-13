@@ -8,5 +8,6 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="menu_item_dot_waiting">dot waiting</string>
+    <string name="menu_item_index">Index</string>
+    <string name="menu_item_dot_waiting">Dot Waiting</string>
 </resources>

@@ -7,10 +7,9 @@
     tools:context="azalea.com.suchwating.SampleActivity"
     tools:showIn="@layout/app_bar_sample">
 
-    <fragment
-        android:id="@+id/container"
-        android:name="azalea.com.suchwating.sample.IndexFragment"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></fragment>
+        android:layout_height="match_parent"/>
 
 </RelativeLayout>
