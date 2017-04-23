@@ -5,6 +5,9 @@
         <item
             android:id="@+id/nav_color_line_dot"
             android:title="@string/menu_item_dot_waiting"/>
+        <item
+            android:id="@+id/navi_triangle"
+            android:title="@string/menu_item_triangle_waiting"/>
     </group>
 
 </menu>

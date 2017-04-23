@@ -23,4 +23,7 @@ public interface ILoadingRender {
 
 	int getOpacity();
 
+	int getIntrinsicHeight();
+
+	int getIntrinsicWidth();
 }

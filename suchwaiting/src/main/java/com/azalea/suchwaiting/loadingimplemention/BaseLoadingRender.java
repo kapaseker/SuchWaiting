@@ -9,6 +9,8 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.azalea.suchwaiting.contant.Constant;
+
 /**
  * Created by Panoo on 2017/4/6.
  */
@@ -48,5 +50,15 @@ public class BaseLoadingRender implements ILoadingRender {
 	@Override
 	public int getOpacity() {
 		return PixelFormat.UNKNOWN;
+	}
+
+	@Override
+	public int getIntrinsicHeight() {
+		return Constant.DEFAULT_SIZE;
+	}
+
+	@Override
+	public int getIntrinsicWidth() {
+		return Constant.DEFAULT_SIZE;
 	}
 }

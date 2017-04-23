@@ -8,6 +8,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.azalea.suchwaiting.contant.Constant;
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
 
 
@@ -57,6 +58,16 @@ public class LoadingDrawable extends Drawable implements Drawable.Callback {
 	@Override
 	public void scheduleDrawable(@NonNull Drawable who, @NonNull Runnable what, long when) {
 		scheduleSelf(what, when);
+	}
+
+	@Override
+	public int getIntrinsicHeight() {
+		return mLoadingRender.getIntrinsicHeight();
+	}
+
+	@Override
+	public int getIntrinsicWidth() {
+		return mLoadingRender.getIntrinsicWidth();
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 
 import azalea.com.suchwating.sample.ColorLineDotFragment;
 import azalea.com.suchwating.sample.IndexFragment;
+import azalea.com.suchwating.sample.TriangleFragment;
 
 public class SampleActivity extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
@@ -24,6 +25,7 @@ public class SampleActivity extends AppCompatActivity
 	private static final Fragment[] SAMPLE_FRAGMENTS = new Fragment[]{
 			new IndexFragment(),
 			new ColorLineDotFragment(),
+			new TriangleFragment(),
 	};
 
 	@Override
@@ -42,9 +44,9 @@ public class SampleActivity extends AppCompatActivity
 		mNavigationView = (NavigationView) findViewById(R.id.nav_view);
 		mNavigationView.setNavigationItemSelectedListener(this);
 
-        if(getSupportFragmentManager().findFragmentById(R.id.fragment) == null){
-            goFragment(0);
-        }
+		if (getSupportFragmentManager().findFragmentById(R.id.fragment) == null) {
+			goFragment(0);
+		}
 	}
 
 	@Override
@@ -89,9 +91,12 @@ public class SampleActivity extends AppCompatActivity
 	public boolean onNavigationItemSelected(MenuItem item) {
 		// Handle navigation view item clicks here.
 
-		switch (item.getItemId()){
+		switch (item.getItemId()) {
 			case R.id.nav_color_line_dot:
 				goFragment(1);
+				break;
+			case R.id.navi_triangle:
+				goFragment(2);
 				break;
 		}
 
@@ -101,6 +106,6 @@ public class SampleActivity extends AppCompatActivity
 	}
 
 	private void goFragment(int index) {
-		getSupportFragmentManager().beginTransaction().replace(R.id.fragment,SAMPLE_FRAGMENTS[index]).commit();
+		getSupportFragmentManager().beginTransaction().replace(R.id.fragment, SAMPLE_FRAGMENTS[index]).commit();
 	}
 }

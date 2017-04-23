@@ -9,8 +9,6 @@ import azalea.com.suchwating.R;
 
 public class IndexFragment extends BaseFragment {
 
-	public static final String TAG_FRAGMENT = "IndexFragment";
-
 	@Override
 	protected int getLayoutResource() {
 		return R.layout.frag_index;

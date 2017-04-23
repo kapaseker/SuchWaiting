@@ -15,8 +15,6 @@ import azalea.com.suchwating.R;
 
 public class ColorLineDotFragment extends BaseFragment {
 
-	public static final String TAG_FRAGMENT = "ColorLineDotFragment";
-
 	@Override
 	public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
@@ -25,6 +23,7 @@ public class ColorLineDotFragment extends BaseFragment {
 		((ImageView) view.findViewById(R.id.img_2)).setImageDrawable(new LoadingDrawable(new ColorLineDotLoadingRender(2600L, Color.BLUE)));
 		((ImageView) view.findViewById(R.id.img_3)).setImageDrawable(new LoadingDrawable(new ColorLineDotLoadingRender()));
 		((ImageView) view.findViewById(R.id.img_4)).setImageDrawable(new LoadingDrawable(new ColorLineDotLoadingRender(3000L, Color.parseColor("#00c300"))));
+		((ImageView)view.findViewById(R.id.img_5)).setImageDrawable(new LoadingDrawable(new ColorLineDotLoadingRender(2600L, Color.MAGENTA)));
 	}
 
 	@Override
