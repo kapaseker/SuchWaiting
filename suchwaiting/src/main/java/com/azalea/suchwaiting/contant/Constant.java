@@ -5,5 +5,5 @@ package com.azalea.suchwaiting.contant;
  */
 
 public class Constant {
-	public static final int DEFAULT_SIZE = 120;
+	public static final int DEFAULT_SIZE = 240;
 }

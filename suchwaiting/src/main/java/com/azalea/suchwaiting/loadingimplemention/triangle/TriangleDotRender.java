@@ -31,16 +31,34 @@ public class TriangleDotRender extends BaseLoadingRender implements ValueAnimato
 	private float mEndX = 0F;
 	private float mEndY = 0F;
 	private int mDegree = 0;
-	private long mRotateDuration = 1800L;
 	private ValueAnimator mAnimator = null;
+
+	private long mRotateDuration = 1800L;
+	private int mColor = DEFAULT_COLOR;
 
 	public TriangleDotRender() {
 		init();
 	}
 
+	public TriangleDotRender(int mColor) {
+		this.mColor = mColor;
+		init();
+	}
+
+	public TriangleDotRender(long mRotateDuration) {
+		this.mRotateDuration = mRotateDuration;
+		init();
+	}
+
+	public TriangleDotRender(long mRotateDuration, int mColor) {
+		this.mRotateDuration = mRotateDuration;
+		this.mColor = mColor;
+		init();
+	}
+
 	private void init() {
 		mPaint.setAntiAlias(true);
-		mPaint.setColor(DEFAULT_COLOR);
+		mPaint.setColor(mColor);
 		mPaint.setStrokeWidth(1);
 	}
 
