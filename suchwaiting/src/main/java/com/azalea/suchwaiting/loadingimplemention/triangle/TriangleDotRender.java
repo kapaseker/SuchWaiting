@@ -16,7 +16,6 @@ import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
 
 public class TriangleDotRender extends BaseLoadingRender implements ValueAnimator.AnimatorUpdateListener {
 
-	private Rect mBounds = new Rect();
 	private Paint mPaint = new Paint();
 	private static final int MAX_SIZE = 480;
 	private static final float SIZE_RATIO = 0.18F;
@@ -93,10 +92,9 @@ public class TriangleDotRender extends BaseLoadingRender implements ValueAnimato
 
 	@Override
 	public void onBoundsChange(Rect bounds) {
-		mBounds = bounds;
 
-		float innerWidth = (int) (mBounds.width() * SIZE_RATIO);
-		float innerHeight = (int) (mBounds.height() * SIZE_RATIO);
+		float innerWidth = (int) (bounds.width() * SIZE_RATIO);
+		float innerHeight = (int) (bounds.height() * SIZE_RATIO);
 
 		float realMinSize = Math.min(innerWidth, innerHeight);
 
@@ -104,8 +102,8 @@ public class TriangleDotRender extends BaseLoadingRender implements ValueAnimato
 
 		mCircleRadius = mRealSize * 0.13F;
 
-		mCentX = mBounds.width() / 2F;
-		mCentY = mBounds.height() / 2F;
+		mCentX = bounds.width() / 2F;
+		mCentY = bounds.height() / 2F;
 
 		mStartX = mCentX;
 		mStartY = mCentY - mRealSize / 2F;
