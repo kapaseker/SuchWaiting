@@ -18,11 +18,12 @@ public class TriangleShrinkDotRender extends BaseLoadingRender {
 
     private Paint mPaint = new Paint();
     private static final int MAX_SIZE = 480;
-    private static final float SIZE_RATIO = 0.18F;
+    private static final float SIZE_RATIO = 0.24F;
     private static final int DEFAULT_COLOR = Color.parseColor("#0084ff");
 
     private float mRealSize = 0F;
-    private float mCircleRadius = 0F;
+    private float mDotCircleRadius = 0F;
+	private float mModelCircleRadius = 0F;
     private float mCentX = 0F;
     private float mCentY = 0F;
     private float mStartX = 0F;
@@ -30,7 +31,7 @@ public class TriangleShrinkDotRender extends BaseLoadingRender {
     private float mEndX = 0F;
     private float mEndY = 0F;
     private int mDegree = 0;
-    private int mCurrentShinkDot = 0;
+    private int mCurrentShrinkDot = 0;
     private int mCurrentShrinkOffset = 0;
     private ValueAnimator mAnimator = null;
     private ValueAnimator mShinkAnimator = null;
@@ -43,7 +44,19 @@ public class TriangleShrinkDotRender extends BaseLoadingRender {
         init();
     }
 
-    private void init() {
+	public TriangleShrinkDotRender(int color) {
+		mColor = color;
+		init();
+	}
+
+	public TriangleShrinkDotRender(long rotateDuration, long shrinkDuration, int color) {
+		mRotateDuration = rotateDuration;
+		mShrinkDuration = shrinkDuration;
+		mColor = color;
+		init();
+	}
+
+	private void init() {
         mPaint.setAntiAlias(true);
         mPaint.setColor(mColor);
         mPaint.setStrokeWidth(1);
@@ -75,7 +88,7 @@ public class TriangleShrinkDotRender extends BaseLoadingRender {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     int value = (int) animation.getAnimatedValue();
-                    mCurrentShinkDot = value / 100;
+                    mCurrentShrinkDot = value / 100;
                     mCurrentShrinkOffset = value % 100;
                     invalidate();
                 }
@@ -88,12 +101,35 @@ public class TriangleShrinkDotRender extends BaseLoadingRender {
 
     private void drawTriangle(Canvas canvas, int degree) {
 
+	    int endDot = (mCurrentShrinkDot == 0 ? 2 : mCurrentShrinkDot - 1);
+	    float moveRatio = mCurrentShrinkOffset < 50 ? mCurrentShrinkOffset : 100 - mCurrentShrinkOffset;
+	    float currentMoveOffset = mModelCircleRadius * moveRatio / 50;
+	    float lastDotEndXOffset = (float) ((mModelCircleRadius - currentMoveOffset) * Math.cos(Math.PI / 6));
+	    float lastDotEndYOffset = (float) ((mModelCircleRadius - currentMoveOffset) * Math.sin(Math.PI / 6));
 
         for (int i = 0; i < 3; ++i) {
+
             canvas.save();
+
+	        float startX = mStartX;
+	        float startY = mStartY;
+
+	        float endX = mEndX;
+	        float endY = mEndY;
+
+	        if (mCurrentShrinkDot == i) {
+		        startY += currentMoveOffset;
+	        }
+
+	        if(endDot == i){
+		        endX = mCentX + lastDotEndXOffset;
+		        endY = mCentY + lastDotEndYOffset;
+	        }
+
 	        canvas.rotate(i * 120 + degree, mCentX, mCentY);
-	        canvas.drawCircle(mStartX, mStartY, mCircleRadius, mPaint);
-            canvas.drawLine(mStartX, mStartY, mEndX, mEndY, mPaint);
+	        canvas.drawCircle(startX, startY, mDotCircleRadius, mPaint);
+            canvas.drawLine(startX, startY, endX, endY, mPaint);
+
             canvas.restore();
         }
 
@@ -109,7 +145,8 @@ public class TriangleShrinkDotRender extends BaseLoadingRender {
 
         mRealSize = realMinSize > MAX_SIZE ? MAX_SIZE : realMinSize;
 
-        mCircleRadius = mRealSize * 0.13F;
+	    mModelCircleRadius = mRealSize / 2;
+        mDotCircleRadius = mRealSize * 0.1F;
 
         mCentX = bounds.width() / 2F;
         mCentY = bounds.height() / 2F;

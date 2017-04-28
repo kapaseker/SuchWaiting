@@ -7,10 +7,10 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-/**
- * Created by Panoo on 2017/4/6.
- */
 
+/**
+ * interface of loading render
+ */
 public interface ILoadingRender {
 
 	void draw(@NonNull Canvas canvas);

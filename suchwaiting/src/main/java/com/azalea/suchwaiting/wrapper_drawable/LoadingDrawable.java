@@ -8,7 +8,6 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
-import com.azalea.suchwaiting.contant.Constant;
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
 
 

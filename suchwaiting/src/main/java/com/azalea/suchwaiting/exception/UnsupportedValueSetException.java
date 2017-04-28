@@ -1,9 +1,9 @@
 package com.azalea.suchwaiting.exception;
 
-/**
- * Created by Panoo on 2017/4/10.
- */
 
+/**
+ * an exception for unsupported value
+ */
 public class UnsupportedValueSetException extends RuntimeException {
 
 	private UnsupportedValueSetException() {

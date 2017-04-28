@@ -11,10 +11,10 @@ import android.support.annotation.Nullable;
 
 import com.azalea.suchwaiting.contant.Constant;
 
-/**
- * Created by Panoo on 2017/4/6.
- */
 
+/**
+ * base render for loading animation , extends this to achieve your own animation.
+ */
 public class BaseLoadingRender implements ILoadingRender {
 
 	Drawable.Callback mDrawableCallBack = null;

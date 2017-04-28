@@ -3,10 +3,10 @@ package azalea.com.suchwating.sample;
 import azalea.com.suchwating.BaseFragment;
 import azalea.com.suchwating.R;
 
-/**
- * Created by Panoo on 2017/4/10.
- */
 
+/**
+ * the Index Fragment , the App's main page fragment
+ */
 public class IndexFragment extends BaseFragment {
 
 	@Override

@@ -7,10 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * Created by Panoo on 2017/4/10.
- */
 
+/**
+ * base fragment for sample show
+ */
 public abstract class BaseFragment extends Fragment {
 	@Nullable
 	@Override
