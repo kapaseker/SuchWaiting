@@ -11,4 +11,5 @@
     <string name="menu_item_index">Index</string>
     <string name="menu_item_dot_waiting">Dot Waiting</string>
     <string name="menu_item_triangle_waiting">Triangle Waiting</string>
+    <string name="menu_item_triangleshrink_waiting">Triangle Shrink Waiting</string>
 </resources>

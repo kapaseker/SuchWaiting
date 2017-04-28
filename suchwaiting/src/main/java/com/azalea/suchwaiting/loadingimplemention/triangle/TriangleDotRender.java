@@ -10,10 +10,10 @@ import android.view.animation.LinearInterpolator;
 
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
 
-/**
- * Created by Panoo on 2017/4/23.
- */
 
+/**
+ * triangle dot render
+ */
 public class TriangleDotRender extends BaseLoadingRender implements ValueAnimator.AnimatorUpdateListener {
 
 	private Paint mPaint = new Paint();
@@ -65,7 +65,7 @@ public class TriangleDotRender extends BaseLoadingRender implements ValueAnimato
 	public void draw(@NonNull Canvas canvas) {
 
 		if (mAnimator == null) {
-			mAnimator = new ValueAnimator().ofInt(0, 360);
+			mAnimator = ValueAnimator.ofInt(0, 360);
 			mAnimator.setDuration(mRotateDuration);
 			mAnimator.setRepeatCount(ValueAnimator.INFINITE);
 			mAnimator.setInterpolator(new LinearInterpolator());

@@ -8,6 +8,9 @@
         <item
             android:id="@+id/navi_triangle"
             android:title="@string/menu_item_triangle_waiting"/>
+        <item
+            android:id="@+id/navi_triangleshrink"
+            android:title="@string/menu_item_triangleshrink_waiting"/>
     </group>
 
 </menu>

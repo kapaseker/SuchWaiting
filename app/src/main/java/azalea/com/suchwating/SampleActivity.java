@@ -1,6 +1,7 @@
 package azalea.com.suchwating;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +15,7 @@ import android.view.MenuItem;
 import azalea.com.suchwating.sample.ColorLineDotFragment;
 import azalea.com.suchwating.sample.IndexFragment;
 import azalea.com.suchwating.sample.TriangleFragment;
+import azalea.com.suchwating.sample.TriangleShrinkDotFragment;
 
 public class SampleActivity extends AppCompatActivity
 		implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,7 @@ public class SampleActivity extends AppCompatActivity
 			new IndexFragment(),
 			new ColorLineDotFragment(),
 			new TriangleFragment(),
+			new TriangleShrinkDotFragment(),
 	};
 
 	@Override
@@ -88,8 +91,7 @@ public class SampleActivity extends AppCompatActivity
 	}
 
 	@Override
-	public boolean onNavigationItemSelected(MenuItem item) {
-		// Handle navigation view item clicks here.
+	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
 		switch (item.getItemId()) {
 			case R.id.nav_color_line_dot:
@@ -97,6 +99,9 @@ public class SampleActivity extends AppCompatActivity
 				break;
 			case R.id.navi_triangle:
 				goFragment(2);
+				break;
+			case R.id.navi_triangleshrink:
+				goFragment(3);
 				break;
 		}
 

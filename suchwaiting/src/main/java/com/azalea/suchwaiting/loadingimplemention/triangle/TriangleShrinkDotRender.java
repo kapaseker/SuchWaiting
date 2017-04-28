@@ -10,11 +10,11 @@ import android.view.animation.LinearInterpolator;
 
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
 
-/**
- * Created by pango on 4/27/17.
- */
 
-public class TriangleShinkDotRender extends BaseLoadingRender {
+/**
+ * Triangle Shrink Dot render
+ */
+public class TriangleShrinkDotRender extends BaseLoadingRender {
 
     private Paint mPaint = new Paint();
     private static final int MAX_SIZE = 480;
@@ -39,7 +39,7 @@ public class TriangleShinkDotRender extends BaseLoadingRender {
     private long mShrinkDuration = 900L;
     private int mColor = DEFAULT_COLOR;
 
-    public TriangleShinkDotRender() {
+    public TriangleShrinkDotRender() {
         init();
     }
 
@@ -54,7 +54,7 @@ public class TriangleShinkDotRender extends BaseLoadingRender {
     public void draw(@NonNull Canvas canvas) {
 
         if (mAnimator == null) {
-            mAnimator = new ValueAnimator().ofInt(0, 360);
+            mAnimator = ValueAnimator.ofInt(0, 360);
             mAnimator.setDuration(mRotateDuration);
             mAnimator.setRepeatCount(ValueAnimator.INFINITE);
             mAnimator.setInterpolator(new LinearInterpolator());
@@ -67,7 +67,7 @@ public class TriangleShinkDotRender extends BaseLoadingRender {
             });
             mAnimator.start();
 
-            mShinkAnimator = new ValueAnimator().ofInt(0,299);
+            mShinkAnimator = ValueAnimator.ofInt(0,299);
             mShinkAnimator.setDuration(mShrinkDuration*3);
             mShinkAnimator.setRepeatCount(ValueAnimator.INFINITE);
             mShinkAnimator.setInterpolator(new LinearInterpolator());
@@ -91,8 +91,8 @@ public class TriangleShinkDotRender extends BaseLoadingRender {
 
         for (int i = 0; i < 3; ++i) {
             canvas.save();
-            canvas.rotate(i + degree * 120, mCentX, mCentY);
-            canvas.drawCircle(mStartX, mStartY, mCircleRadius, mPaint);
+	        canvas.rotate(i * 120 + degree, mCentX, mCentY);
+	        canvas.drawCircle(mStartX, mStartY, mCircleRadius, mPaint);
             canvas.drawLine(mStartX, mStartY, mEndX, mEndY, mPaint);
             canvas.restore();
         }
