@@ -11,6 +11,9 @@
         <item
             android:id="@+id/navi_triangleshrink"
             android:title="@string/menu_item_triangleshrink_waiting"/>
+        <item
+            android:id="@+id/navi_loadingbar"
+            android:title="@string/menu_item_loadingbar_waiting"/>
     </group>
 
 </menu>

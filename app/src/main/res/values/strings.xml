@@ -12,4 +12,5 @@
     <string name="menu_item_dot_waiting">Dot Waiting</string>
     <string name="menu_item_triangle_waiting">Triangle Waiting</string>
     <string name="menu_item_triangleshrink_waiting">Triangle Shrink Waiting</string>
+    <string name="menu_item_loadingbar_waiting">Loading bar Waiting</string>
 </resources>
