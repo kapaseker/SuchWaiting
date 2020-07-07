@@ -1,13 +1,13 @@
 package azalea.com.suchwating.sample;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
 import com.azalea.suchwaiting.wrapper_drawable.LoadingDrawable;
 
+import androidx.annotation.Nullable;
 import azalea.com.suchwating.BaseFragment;
 import azalea.com.suchwating.R;
 

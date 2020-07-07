@@ -5,10 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.support.annotation.NonNull;
 import android.view.animation.LinearInterpolator;
 
 import com.azalea.suchwaiting.loadingimplemention.BaseLoadingRender;
+
+import androidx.annotation.NonNull;
 
 
 /**
